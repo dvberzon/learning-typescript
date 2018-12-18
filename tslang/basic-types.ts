@@ -1,4 +1,5 @@
 // this is going through the handbook bit by bit. So starting on 
+// https://www.typescriptlang.org/docs/handbook/basic-types.html
 let x: [string, number];
 
 x = ['hello', 10];
