@@ -1,13 +1,19 @@
 // https://www.typescriptlang.org/docs/handbook/interfaces.html
 
-interface LabelledValue {
-  label: string;
-  name: string;
+interface SquareConfig {
+  color?: string;
+  width?: number;
 }
 
-function printLabel(labelledObj: LabelledValue) {
-  console.log(labelledObj.label);
+function createSquare(config: SquareConfig): { color: string; area: number } {
+  let newSquare = { color: "white", area: 100 };
+  if (config.color) {
+    newSquare.color = config.color;
+  }
+  if (config.width) {
+    newSquare.area = config.width * config.width;
+  }
+  return newSquare;
 }
 
-let myObj = {name: 'henry', size: 10, label: "Size 10 Object"}; // note order doesn't matter
-printLabel(myObj);
+let mySquare = createSquare({ color: "black" });
