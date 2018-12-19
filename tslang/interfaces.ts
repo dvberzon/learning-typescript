@@ -16,22 +16,11 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
   }
   return newSquare;
 }
+let thing = {colour: 'black', width: 100}
 
-let mySquare = createSquare({ color: "black" });
+let mySquare = createSquare(thing); // fine
 
-interface Pointy {
-  readonly x: number;
-  readonly y: number;
-}
+// BUT
+//let anotherSquare = createSquare({ colour: 'black', width: 100 }); // doesn't like this
 
-let p1: Pointy = { x: 10, y: 20 };
-//p1.x = 5; // error!
-
-let a: number[] = [1, 2, 3, 4];
-let ro: ReadonlyArray<number> = a;
-//ro[0] = 12; // error!
-//ro.push(5); // error!
-//ro.length = 100; // error!
-//a = ro; // error!
-console.log(ro[2]);
-a = ro as number[];
+// Object literals as PARAMETERS are treated differently. excess type checking is done
