@@ -52,9 +52,7 @@ let mySearch: SearchFunc = function(src: string, sub: string) {
 
 interface ContainsFunction {
   num: number;
-  aFunc: {
-    (param: string): boolean
-  };
+  aFunc(param: string): boolean // better function syntax
 }
 
 let myThing: ContainsFunction = {
@@ -88,7 +86,7 @@ class Dog extends Animal {
 // IE object keys are always actually strings, even if defined as numbers.
 // {"1": 'no', 1: 'yes'} === {"1": yes}
 interface NotOkay {
-  [x: number]: Animal; // chucks error!
+  //[x: number]: Animal; // chucks error!
   [x: string]: Dog;
 }
 
@@ -96,11 +94,139 @@ interface NotOkay {
 interface NumberDictionary {
   [index: string]: number;
   length: number;    // ok, length is a number
-  name: string;      // error, the type of 'name' is not a subtype of the indexer
+  //name: string;      // error, the type of 'name' is not a subtype of the indexer
 }
 
 interface ReadonlyStringArray {
   readonly [index: number]: string;
 }
 let anArray: ReadonlyStringArray = ["Alice", "Bob"];
-anArray[2] = "Mallory"; // error! -- super wierd!
+//anArray[2] = "Mallory"; // error! -- super wierd!
+
+// Class interfaces
+{ // adding a block scope here to avoid name clashes further down the file
+  interface ClockInterface {
+    currentTime: Date;
+    setTime(d: Date);
+  }
+
+  // implements indicates that it obeys an interface
+  class Clock implements ClockInterface {
+    currentTime: Date;
+    setTime(d: Date) {
+      this.currentTime = d;
+    }
+    constructor(h: number, m: number) { }
+  }
+}
+
+// constructor interfaces:
+interface ClockConstructor {
+  new(hour: number, minute: number): ClockInterface;
+}
+interface ClockInterface {
+  tick();
+}
+
+// this is a function that needs to have a constructor of the right interface. Looks like this is the only way to type a constructor!
+function createClock(ctor: ClockConstructor, hour: number, minute: number): ClockInterface {
+  return new ctor(hour, minute);
+}
+
+class DigitalClock implements ClockInterface {
+  constructor(h: number, m: number) { }
+  tick() {
+    console.log("beep beep");
+  }
+}
+class AnalogClock implements ClockInterface {
+  constructor(h: number, m: number) { }
+  tick() {
+    console.log("tick tock");
+  }
+}
+
+let digital = createClock(DigitalClock, 12, 17);
+let analog = createClock(AnalogClock, 7, 32);
+// extending interfaces
+{
+  interface Shape {
+    color: string;
+  }
+
+  interface Square extends Shape {
+    sideLength: number;
+  }
+
+  let square = <Square>{}; // what is this syntax they've just dropped on us?
+  console.log(square);
+  square.color = "blue";
+  square.sideLength = 10;
+}
+// multi interface extension
+{
+  interface Shape {
+    color: string;
+  }
+
+  interface PenStroke {
+    penWidth: number;
+  }
+
+  interface Square extends Shape, PenStroke {
+    sideLength: number;
+  }
+
+  let square = {} as Square; // i think this is the same as <Square>{}, but I need to check
+  square.color = "blue";
+  square.sideLength = 10;
+  square.penWidth = 5.0;
+
+}
+
+// hybrid types
+interface Counter {
+  (start: number): string; // so this is defining the functional aspect of it
+  interval: number; // and these define the parameters of the returned object
+  reset(): void;
+}
+
+function getCounter(): Counter {
+  let counter = <Counter>function (start: number) { };
+  counter.interval = 123;
+  counter.reset = function () { };
+  return counter;
+}
+
+let c = getCounter();
+c(10);
+c.reset();
+c.interval = 5.0;
+
+{
+  class Control {
+    private state: any;
+  }
+
+  interface SelectableControl extends Control {
+    select(): void;
+  }
+
+  class Button extends Control implements SelectableControl {
+    select() { }
+  }
+
+  class TextBox extends Control {
+    select() { }
+  }
+
+  // Error: Property 'state' is missing in type 'Image'.
+  /*class Image implements SelectableControl {
+    select() { }
+  }
+*/
+  class Location {
+
+  }
+}
+// this is just wierd stuff
