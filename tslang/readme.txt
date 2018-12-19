@@ -23,3 +23,20 @@ enum is basically an array of Constants, each representing a number. Can be used
 
 - should look into `unknown` and the `is` keyword.
 
+https://www.typescriptlang.org/docs/handbook/interfaces.html
+
+Missing keys are treated differently to nulls. If an interface has
+
+interface Square {
+  length: number;
+}
+
+length must be there, but can be null
+
+Not allowed duplicate interface declaration across files?
+
+look into `as`
+
+
+
+
