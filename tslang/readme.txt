@@ -37,6 +37,8 @@ Not allowed duplicate interface declaration across files?
 
 look into `as`
 
+Object literals as PARAMETERS or assignments to variables are treated differently. excess type checking is done
+
 
 
 
