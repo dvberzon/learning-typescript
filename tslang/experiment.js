@@ -1,3 +1,9 @@
-for (let i = 0; i < 10; i++) {
-    setTimeout(function() { console.log(i); }, 100 * i);
-}
+"use strict";
+var Octopus = /** @class */ (function () {
+    function Octopus(name) {
+        this.name = name;
+    }
+    return Octopus;
+}());
+var octo = new Octopus('hi');
+console.log(octo.name);
