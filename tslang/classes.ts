@@ -2,17 +2,17 @@
 
 class Greeter {
   greeting: string; // this is typescript new syntax for declaring a property
-  constructor(message: string) {
-    this.greeting = message;
+  constructor(message: number) {
+    this.greeting = message.toString();
   }
   greet() {
     return "Hello, " + this.greeting;
   }
 }
 
-let greeter = new Greeter("world");
+let greeterObj = new Greeter(1);
 
-console.log(greeter.greet());
+console.log(greeterObj.greet());
 {
   class Animal {
     name: string;
@@ -81,6 +81,9 @@ console.log(greeter.greet());
   class Person {
     protected name: string;
     constructor(name: string) { this.name = name; }
+    public greet(stranger: string){
+      return `Hi ${stranger}, my name is ${this.name}`;
+    }
   }
 
   class Employee extends Person {
@@ -97,7 +100,9 @@ console.log(greeter.greet());
   }
 
   let howard = new Employee("Howard", "Sales");
+  let whoward = new Person('bob');
   console.log(howard.getElevatorPitch());
+  console.log(whoward.greet('howard'));
   // console.log(howard.name); // error.
   // although howard can access name, it is protected
 }
@@ -143,7 +148,7 @@ console.log(greeter.greet());
     }
   }
 
-  const octo = new Octopus('hi');
+  const octo = new Octopus('This was instantiated using the syntax `constructor(public name: string)`');
   console.log(octo.name);
 }
 {

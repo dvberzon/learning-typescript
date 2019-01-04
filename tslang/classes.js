@@ -15,15 +15,15 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var Greeter = /** @class */ (function () {
     function Greeter(message) {
-        this.greeting = message;
+        this.greeting = message.toString();
     }
     Greeter.prototype.greet = function () {
         return "Hello, " + this.greeting;
     };
     return Greeter;
 }());
-var greeter = new Greeter("world");
-console.log(greeter.greet());
+var greeterObj = new Greeter(1);
+console.log(greeterObj.greet());
 {
     var Animal_1 = /** @class */ (function () {
         function Animal(theName) {
@@ -107,6 +107,9 @@ console.log(greeter.greet());
         function Person(name) {
             this.name = name;
         }
+        Person.prototype.greet = function (stranger) {
+            return "Hi " + stranger + ", my name is " + this.name;
+        };
         return Person;
     }());
     var Employee = /** @class */ (function (_super) {
@@ -122,7 +125,9 @@ console.log(greeter.greet());
         return Employee;
     }(Person));
     var howard = new Employee("Howard", "Sales");
+    var whoward = new Person('bob');
     console.log(howard.getElevatorPitch());
+    console.log(whoward.greet('howard'));
     // console.log(howard.name); // error.
     // although howard can access name, it is protected
 }
@@ -168,7 +173,7 @@ console.log(greeter.greet());
         }
         return Octopus;
     }());
-    var octo_1 = new Octopus_2('hi');
+    var octo_1 = new Octopus_2('This was instantiated using the syntax `constructor(public name: string)`');
     console.log(octo_1.name);
 }
 {
