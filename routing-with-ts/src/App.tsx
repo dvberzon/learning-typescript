@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import { TopLevelComponent } from './components/TopLevelComponent';
+import { PageHeader } from './components/PageHeader';
+import { SideMenu } from './components/SideMenu';
+import { MainArea } from './components/MainArea';
+import { Footer } from './components/Footer';
 import './App.css';
 
 class App extends Component {
   render() {
-    const bob: string = "Hello";
-    const message: string = `${bob} is a react app, let's add ts`;
     return (
-        <TopLevelComponent />
+      <React.Fragment>
+        <PageHeader />
+        <section id="body-section">
+          <SideMenu />
+          <MainArea />
+        </section>
+        <Footer />
+      </React.Fragment>
     );
   }
 }

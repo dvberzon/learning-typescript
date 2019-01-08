@@ -1,0 +1,38 @@
+html, body {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+header {
+  background-color: #0066ff;
+  color: white;
+  text-align: right;
+  padding: 20px;
+  flex: none;
+}
+
+#body-section {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: row;
+}
+.sidebar {
+  width: 200px;
+  border-right: 1px solid #ccc
+}
+
+main {
+  padding: 20px;
+  min-height: 100%;
+}
+
+footer {
+  padding: 10px;
+  text-align: right;
+  background-color: #ccc;
+  flex: none;
+}
