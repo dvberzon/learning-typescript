@@ -5,7 +5,7 @@ import { MainArea } from './components/MainArea';
 import { Footer } from './components/Footer';
 import './App.css';
 
-class App extends Component {
+class App extends Component<{}> {
   render() {
     return (
       <React.Fragment>

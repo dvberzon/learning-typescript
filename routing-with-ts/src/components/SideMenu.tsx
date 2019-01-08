@@ -1,13 +1,18 @@
-import React, {Component} from 'react';
+import React, { FunctionComponent} from 'react';
 
-const links = [
+interface link {
+  name: string,
+  url: string
+}
+
+const links: link[] = [
   { "name": "BBC", "url": "http://www.bbc.co.uk" },
   { "name": "Guardian", "url": "http://www.guardian.com" },
   { "name": "Google", "url": "http://www.google.com" },
 ];
 
 
-const SideMenu = () => (
+const SideMenu: FunctionComponent<{}> = () => (
   <nav className="sidebar">
     <ul className="links">
       {links.map(({ name, url }) => (

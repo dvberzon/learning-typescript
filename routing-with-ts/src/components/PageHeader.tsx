@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { FunctionComponent} from 'react';
 
-const PageHeader = () => (
+const PageHeader: FunctionComponent<{}> = () => (
   <header>
     <span className="username">Logged in as <strong>Daniel</strong></span>
   </header>

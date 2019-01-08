@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { FunctionComponent } from 'react';
 
-const Footer = () => (
+const Footer: FunctionComponent<{}> = () => (
   <footer>@dvberzon 2019</footer>
 )
 
