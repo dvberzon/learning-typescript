@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
+/* demo page for 'home' */
 const HomePage: FunctionComponent<{}> = () => (
   <div>
     <h1>Home page</h1>

@@ -1,3 +1,12 @@
+# Demo Typescript React Routing app
+
+This app is a proof of concept for Using the following technologies together:
+  
+- React routing
+- Typescript
+
+To give a simple menu that can also load external pages through an iframe
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

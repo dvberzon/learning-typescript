@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-
+/* demo page for `about us` */
 const AboutPage: FunctionComponent<{}> = () => (
   <div>
     <h1>About us</h1>

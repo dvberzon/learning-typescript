@@ -10,6 +10,8 @@ import './App.css';
 
 class App extends Component<{}> {
   render() {
+    // The App is wrapped in a BrowswerRouter
+    // This will use the browser url to define routes through the app
     return (
       <BrowserRouter>
         <React.Fragment>
