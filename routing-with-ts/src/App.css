@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  font-family: Raleway, Arial, Helvetica, sans-serif;
 }
 
 #root {
@@ -25,6 +26,28 @@ header {
   border-right: 1px solid #ccc
 }
 
+.sidebar ul.links {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.sidebar ul.links a {
+  display: block;
+  padding: 10px 30px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #0066ff;
+}
+
+.sidebar ul.links a:hover {
+  color: black;
+}
+
+.sidebar ul.links a.active {
+  background-color: #0066ff;
+  color: white;
+}
 main {
   padding: 20px;
   min-height: 100%;

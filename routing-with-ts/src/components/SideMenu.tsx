@@ -1,5 +1,5 @@
 import React, { FunctionComponent} from 'react';
-import { Router, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { routes } from '../routes'
 
 const SideMenu: FunctionComponent<{}> = () => (
@@ -7,7 +7,7 @@ const SideMenu: FunctionComponent<{}> = () => (
     <ul className="links">
       { routes.map(({ path, name }) => (
         <li key={path}>
-          <Link to={path}>{name}</Link>
+          <NavLink to={path} activeClassName="active" exact>{name}</NavLink>
         </li>
       )) }
     </ul>
