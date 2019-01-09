@@ -4,12 +4,17 @@ import { Route } from 'react-router-dom';
 
 const MainArea: FunctionComponent<{}> = () => (
   <main>
-    { routes.map(({path, component}) => (
-      <Route
-        path={path}
-        component={component}
-      />
-    ))}
+    { 
+      routes.map(({path, component, exact}) => (
+          <Route
+            key={path}
+            path={path}
+            exact={exact}
+            component={component}
+          />
+        )
+      )
+    }
   </main>
 )
 

@@ -6,5 +6,7 @@ export interface RouteConfig {
   name: string,
   path: string,
   // route component can be a component class or functional component
-  component: ComponentClass | FunctionComponent
+  component: ComponentClass | FunctionComponent,
+  // optional boolean for exact match
+  exact?: boolean,
 }

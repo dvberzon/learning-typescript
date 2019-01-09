@@ -6,7 +6,7 @@ const SideMenu: FunctionComponent<{}> = () => (
   <nav className="sidebar">
     <ul className="links">
       { routes.map(({ path, name }) => (
-        <li>
+        <li key={path}>
           <Link to={path}>{name}</Link>
         </li>
       )) }
