@@ -1,25 +1,15 @@
 import React, { FunctionComponent} from 'react';
-
-interface link {
-  name: string,
-  url: string
-}
-
-const links: link[] = [
-  { "name": "BBC", "url": "http://www.bbc.co.uk" },
-  { "name": "Guardian", "url": "http://www.guardian.com" },
-  { "name": "Google", "url": "http://www.google.com" },
-];
-
+import { Router, Link } from "react-router-dom";
+import { routes } from '../routes'
 
 const SideMenu: FunctionComponent<{}> = () => (
   <nav className="sidebar">
     <ul className="links">
-      {links.map(({ name, url }) => (
+      { routes.map(({ path, name }) => (
         <li>
-          <a href={url}>{name}</a>
+          <Link to={path}>{name}</Link>
         </li>
-      ))}
+      )) }
     </ul>
   </nav>
 )

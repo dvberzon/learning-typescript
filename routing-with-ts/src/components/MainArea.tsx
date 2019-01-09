@@ -1,7 +1,16 @@
-import React, { FunctionComponent} from 'react';
+import React, { FunctionComponent } from 'react';
+import { routes } from '../routes';
+import { Route } from 'react-router-dom';
 
 const MainArea: FunctionComponent<{}> = () => (
-  <main>This is the main area</main>
+  <main>
+    { routes.map(({path, component}) => (
+      <Route
+        path={path}
+        component={component}
+      />
+    ))}
+  </main>
 )
 
 export { MainArea }
